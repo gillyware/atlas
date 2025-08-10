@@ -1,0 +1,69 @@
+{
+  "name": "gillyware/atlas",
+  "description": "",
+  "keywords": [
+    "timezones"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bradley Johnson",
+      "email": "braxey@gillyware.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-json": "*",
+    "gillyware/postal": "^1.1",
+    "illuminate/contracts": "^11.0|^12.0",
+    "illuminate/support": "^11.0|^12.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.22",
+    "orchestra/testbench": "^8.18|^9.0|^10.0",
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^10.4|^11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gillyware\\Atlas\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gillyware\\Atlas\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "format": [
+      "./vendor/bin/pint"
+    ],
+    "lint": [
+      "./vendor/bin/phpstan analyse --memory-limit=2G"
+    ],
+    "test": [
+      "./vendor/bin/phpunit"
+    ],
+    "sweep": [
+      "composer format",
+      "composer lint",
+      "composer test"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Gillyware\\Atlas\\Providers\\AtlasServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
